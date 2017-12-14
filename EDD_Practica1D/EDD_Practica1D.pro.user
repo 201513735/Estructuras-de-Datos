@@ -1,0 +1,250 @@
+<!DOCTYPE QtCreatorProject>
+<qtcreator>
+ <data>
+  <variable>RunConfiguration0-CommandLineArguments</variable>
+  <valuelist type="QVariantList" />
+ </data>
+ <data>
+  <variable>RunConfiguration0-ProFile</variable>
+  <value type="QString" >EDD_Practica1D.pro</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-RunConfiguration.name</variable>
+  <value type="QString" >EDD_Practica1D</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UseDyldImageSuffix</variable>
+  <value type="bool" >false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UseTerminal</variable>
+  <value type="bool" >false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UserEnvironmentChanges</variable>
+  <valuelist type="QVariantList" />
+ </data>
+ <data>
+  <variable>RunConfiguration0-UserSetName</variable>
+  <value type="bool" >false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-type</variable>
+  <value type="QString" >Qt4ProjectManager.Qt4RunConfiguration</value>
+ </data>
+ <data>
+  <variable>activeRunConfiguration</variable>
+  <value type="int" >0</value>
+ </data>
+ <data>
+  <variable>activebuildconfiguration</variable>
+  <value type="QString" >Debug</value>
+ </data>
+ <data>
+  <variable>buildConfiguration-Debug</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+   <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildConfiguration-Release</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+   <value key="QtVersionId" type="int" >0</value>
+   <value key="addQDumper" type="" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-buildstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList" >
+    <value type="QString" >ALLUSERSPROFILE=C:\ProgramData</value>
+    <value type="QString" >APPDATA=C:\Users\crist\AppData\Roaming</value>
+    <value type="QString" >COMMONPROGRAMFILES=C:\Program Files (x86)\Common Files</value>
+    <value type="QString" >COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</value>
+    <value type="QString" >COMMONPROGRAMW6432=C:\Program Files\Common Files</value>
+    <value type="QString" >COMPUTERNAME=LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >COMSPEC=C:\WINDOWS\system32\cmd.exe</value>
+    <value type="QString" >HOMEDRIVE=C:</value>
+    <value type="QString" >HOMEPATH=\Users\crist</value>
+    <value type="QString" >JAVA_HOME=C:\Program Files\Java\jdk1.8.0_121</value>
+    <value type="QString" >LOCALAPPDATA=C:\Users\crist\AppData\Local</value>
+    <value type="QString" >LOGONSERVER=\\LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >NUMBER_OF_PROCESSORS=4</value>
+    <value type="QString" >ONEDRIVE=C:\Users\crist\OneDrive</value>
+    <value type="QString" >ONLINESERVICES=Online Services</value>
+    <value type="QString" >OS=Windows_NT</value>
+    <value type="QString" >PATH=C:\Qt\2009.03\mingw\bin;C:\Qt\2009.03\qt\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Broadcom\Broadcom 802.11 Network Adapter;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\Program Files\CMake\bin;C:\GnuWin32\bin;C:\MinGW\bin;C:\Users\crist\AppData\Local\Microsoft\WindowsApps;C:\Qt\5.7\msvc2015_64\bin;C:\Qt\5.8\msvc2015_64\bin;C:\Program Files (x86)\Graphviz2.38\bin;C:\Users\crist\AppData\Roaming\npm;</value>
+    <value type="QString" >PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
+    <value type="QString" >PLATFORMCODE=KV</value>
+    <value type="QString" >PROCESSOR_ARCHITECTURE=x86</value>
+    <value type="QString" >PROCESSOR_ARCHITEW6432=AMD64</value>
+    <value type="QString" >PROCESSOR_IDENTIFIER=AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD</value>
+    <value type="QString" >PROCESSOR_LEVEL=22</value>
+    <value type="QString" >PROCESSOR_REVISION=3001</value>
+    <value type="QString" >PROGRAMDATA=C:\ProgramData</value>
+    <value type="QString" >PROGRAMFILES=C:\Program Files (x86)</value>
+    <value type="QString" >PROGRAMFILES(X86)=C:\Program Files (x86)</value>
+    <value type="QString" >PROGRAMW6432=C:\Program Files</value>
+    <value type="QString" >PSMODULEPATH=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules</value>
+    <value type="QString" >PUBLIC=C:\Users\Public</value>
+    <value type="QString" >QTDIR=C:/Qt/2009.03/qt</value>
+    <value type="QString" >REGIONCODE=LA</value>
+    <value type="QString" >SESSIONNAME=Console</value>
+    <value type="QString" >SYSTEMDRIVE=C:</value>
+    <value type="QString" >SYSTEMROOT=C:\WINDOWS</value>
+    <value type="QString" >TEMP=C:\Users\crist\AppData\Local\Temp</value>
+    <value type="QString" >TMP=C:\Users\crist\AppData\Local\Temp</value>
+    <value type="QString" >USERDOMAIN=LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >USERDOMAIN_ROAMINGPROFILE=LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >USERNAME=crist</value>
+    <value type="QString" >USERPROFILE=C:\Users\crist</value>
+    <value type="QString" >VS140COMNTOOLS=C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\</value>
+    <value type="QString" >WINDIR=C:\WINDOWS</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList" >
+    <value type="QString" >C:/Users/crist/Documents/EDD_Practica1D/EDD_Practica1D.pro</value>
+    <value type="QString" >-spec</value>
+    <value type="QString" >win32-g++</value>
+    <value type="QString" >-r</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString" >C:/Qt/2009.03/qt/bin/qmake.exe</value>
+   <value key="abstractProcess.enabled" type="bool" >false</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >C:/Users/crist/Documents/EDD_Practica1D</value>
+   <value key="buildConfiguration" type="int" >2</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-buildstep1</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList" >
+    <value type="QString" >ALLUSERSPROFILE=C:\ProgramData</value>
+    <value type="QString" >APPDATA=C:\Users\crist\AppData\Roaming</value>
+    <value type="QString" >COMMONPROGRAMFILES=C:\Program Files (x86)\Common Files</value>
+    <value type="QString" >COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files</value>
+    <value type="QString" >COMMONPROGRAMW6432=C:\Program Files\Common Files</value>
+    <value type="QString" >COMPUTERNAME=LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >COMSPEC=C:\WINDOWS\system32\cmd.exe</value>
+    <value type="QString" >HOMEDRIVE=C:</value>
+    <value type="QString" >HOMEPATH=\Users\crist</value>
+    <value type="QString" >JAVA_HOME=C:\Program Files\Java\jdk1.8.0_121</value>
+    <value type="QString" >LOCALAPPDATA=C:\Users\crist\AppData\Local</value>
+    <value type="QString" >LOGONSERVER=\\LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >NUMBER_OF_PROCESSORS=4</value>
+    <value type="QString" >ONEDRIVE=C:\Users\crist\OneDrive</value>
+    <value type="QString" >ONLINESERVICES=Online Services</value>
+    <value type="QString" >OS=Windows_NT</value>
+    <value type="QString" >PATH=C:\Qt\2009.03\mingw\bin;C:\Qt\2009.03\qt\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Broadcom\Broadcom 802.11 Network Adapter;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\nodejs\;C:\Program Files\CMake\bin;C:\GnuWin32\bin;C:\MinGW\bin;C:\Users\crist\AppData\Local\Microsoft\WindowsApps;C:\Qt\5.7\msvc2015_64\bin;C:\Qt\5.8\msvc2015_64\bin;C:\Program Files (x86)\Graphviz2.38\bin;C:\Users\crist\AppData\Roaming\npm;</value>
+    <value type="QString" >PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</value>
+    <value type="QString" >PLATFORMCODE=KV</value>
+    <value type="QString" >PROCESSOR_ARCHITECTURE=x86</value>
+    <value type="QString" >PROCESSOR_ARCHITEW6432=AMD64</value>
+    <value type="QString" >PROCESSOR_IDENTIFIER=AMD64 Family 22 Model 48 Stepping 1, AuthenticAMD</value>
+    <value type="QString" >PROCESSOR_LEVEL=22</value>
+    <value type="QString" >PROCESSOR_REVISION=3001</value>
+    <value type="QString" >PROGRAMDATA=C:\ProgramData</value>
+    <value type="QString" >PROGRAMFILES=C:\Program Files (x86)</value>
+    <value type="QString" >PROGRAMFILES(X86)=C:\Program Files (x86)</value>
+    <value type="QString" >PROGRAMW6432=C:\Program Files</value>
+    <value type="QString" >PSMODULEPATH=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules</value>
+    <value type="QString" >PUBLIC=C:\Users\Public</value>
+    <value type="QString" >QTDIR=C:/Qt/2009.03/qt</value>
+    <value type="QString" >REGIONCODE=LA</value>
+    <value type="QString" >SESSIONNAME=Console</value>
+    <value type="QString" >SYSTEMDRIVE=C:</value>
+    <value type="QString" >SYSTEMROOT=C:\WINDOWS</value>
+    <value type="QString" >TEMP=C:\Users\crist\AppData\Local\Temp</value>
+    <value type="QString" >TMP=C:\Users\crist\AppData\Local\Temp</value>
+    <value type="QString" >USERDOMAIN=LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >USERDOMAIN_ROAMINGPROFILE=LAPTOP-VR6QNJ5P</value>
+    <value type="QString" >USERNAME=crist</value>
+    <value type="QString" >USERPROFILE=C:\Users\crist</value>
+    <value type="QString" >VS140COMNTOOLS=C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\</value>
+    <value type="QString" >WINDIR=C:\WINDOWS</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList" >
+    <value type="QString" >-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString" >C:/Qt/2009.03/mingw/bin/mingw32-make.exe</value>
+   <value key="abstractProcess.enabled" type="bool" >true</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >C:/Users/crist/Documents/EDD_Practica1D</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-cleanstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-buildstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+   <value key="buildConfiguration" type="int" >0</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-buildstep1</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-cleanstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Release</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfigurations</variable>
+  <valuelist type="QVariantList" >
+   <value type="QString" >Debug</value>
+   <value type="QString" >Release</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>buildstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+   <value key="mkspec" type="QString" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildstep1</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildsteps</variable>
+  <valuelist type="QVariantList" >
+   <value type="QString" >trolltech.qt4projectmanager.qmake</value>
+   <value type="QString" >trolltech.qt4projectmanager.make</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>cleanstep0</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+   <value key="clean" type="bool" >true</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>cleansteps</variable>
+  <valuelist type="QVariantList" >
+   <value type="QString" >trolltech.qt4projectmanager.make</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>defaultFileEncoding</variable>
+  <value type="QByteArray" >System</value>
+ </data>
+ <data>
+  <variable>project</variable>
+  <valuemap type="QVariantMap" />
+ </data>
+</qtcreator>
