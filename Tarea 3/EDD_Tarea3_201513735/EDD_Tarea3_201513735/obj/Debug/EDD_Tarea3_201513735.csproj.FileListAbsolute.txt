@@ -1,0 +1,8 @@
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\bin\Debug\EDD_Tarea3_201513735.exe
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\bin\Debug\EDD_Tarea3_201513735.pdb
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\obj\Debug\EDD_Tarea3_201513735.csprojResolveAssemblyReference.cache
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\obj\Debug\EDD_Tarea3_201513735.Form1.resources
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\obj\Debug\EDD_Tarea3_201513735.Properties.Resources.resources
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\obj\Debug\EDD_Tarea3_201513735.csproj.GenerateResource.Cache
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\obj\Debug\EDD_Tarea3_201513735.exe
+c:\users\crist\documents\visual studio 2015\Projects\EDD_Tarea3_201513735\EDD_Tarea3_201513735\obj\Debug\EDD_Tarea3_201513735.pdb
