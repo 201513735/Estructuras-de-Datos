@@ -1,0 +1,6 @@
+C:\Users\crist\Documents\Visual Studio 2015\Projects\EddCliente\EddCliente\obj\Release\EddCliente.csprojResolveAssemblyReference.cache
+C:\Users\crist\Documents\Visual Studio 2015\Projects\EddCliente\EddCliente\bin\EddCliente.dll.config
+C:\Users\crist\Documents\Visual Studio 2015\Projects\EddCliente\EddCliente\bin\EddCliente.dll
+C:\Users\crist\Documents\Visual Studio 2015\Projects\EddCliente\EddCliente\bin\EddCliente.pdb
+C:\Users\crist\Documents\Visual Studio 2015\Projects\EddCliente\EddCliente\obj\Release\EddCliente.dll
+C:\Users\crist\Documents\Visual Studio 2015\Projects\EddCliente\EddCliente\obj\Release\EddCliente.pdb
