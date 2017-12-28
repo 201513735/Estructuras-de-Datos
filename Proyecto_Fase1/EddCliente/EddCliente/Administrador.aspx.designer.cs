@@ -31,6 +31,24 @@ namespace EddCliente {
         protected global::System.Web.UI.WebControls.Button botonCerrarSesion;
         
         /// <summary>
+        /// botonLimpiarArbol control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botonLimpiarArbol;
+        
+        /// <summary>
+        /// botonLimpiarMatriz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botonLimpiarMatriz;
+        
+        /// <summary>
         /// Panel1 control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace EddCliente {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// fileJugadores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileJugadores;
         
         /// <summary>
         /// botonCargarJugadores control.
@@ -65,6 +92,15 @@ namespace EddCliente {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button botonCargarTablero;
+        
+        /// <summary>
+        /// labelArchivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelArchivo;
         
         /// <summary>
         /// Label1 control.
@@ -193,15 +229,6 @@ namespace EddCliente {
         protected global::System.Web.UI.WebControls.Button botonReporteMatriz;
         
         /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-        
-        /// <summary>
         /// botonReporteUsuarios control.
         /// </summary>
         /// <remarks>
@@ -209,6 +236,15 @@ namespace EddCliente {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button botonReporteUsuarios;
+        
+        /// <summary>
+        /// botonEspejoUsuarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botonEspejoUsuarios;
         
         /// <summary>
         /// imagenGrafo control.

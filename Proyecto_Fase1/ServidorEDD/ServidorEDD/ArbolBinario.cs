@@ -65,7 +65,7 @@ public class ArbolBinario
         {
             if(n.Der==null && n.Izq == null)
             {
-                if (n.Padre == null)
+                if (n==this.Raiz)
                 {
                     this.Raiz = null;
                 }else

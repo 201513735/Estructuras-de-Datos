@@ -15,9 +15,29 @@ namespace EddCliente.ReferenciaServidor {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://servidoredd2/", ConfigurationName="ReferenciaServidor.WebServiceSoap")]
     public interface WebServiceSoap {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/reiniciarArbol", ReplyAction="*")]
+        void reiniciarArbol();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/reiniciarMatriz", ReplyAction="*")]
+        void reiniciarMatriz();
+        
         // CODEGEN: Generating message contract since element name UsuariosgrafoResult from namespace http://servidoredd2/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/Usuariosgrafo", ReplyAction="*")]
         EddCliente.ReferenciaServidor.UsuariosgrafoResponse Usuariosgrafo(EddCliente.ReferenciaServidor.UsuariosgrafoRequest request);
+        
+        // CODEGEN: Generating message contract since element name espejoArbolResult from namespace http://servidoredd2/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/espejoArbol", ReplyAction="*")]
+        EddCliente.ReferenciaServidor.espejoArbolResponse espejoArbol(EddCliente.ReferenciaServidor.espejoArbolRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/getGArbol", ReplyAction="*")]
+        byte getGArbol(int i);
+        
+        // CODEGEN: Generating message contract since element name MatrizGrafoResult from namespace http://servidoredd2/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/MatrizGrafo", ReplyAction="*")]
+        EddCliente.ReferenciaServidor.MatrizGrafoResponse MatrizGrafo(EddCliente.ReferenciaServidor.MatrizGrafoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/getGMatriz", ReplyAction="*")]
+        byte getGMatriz(int i);
         
         // CODEGEN: Generating message contract since element name nickname from namespace http://servidoredd2/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/IniciarSesion", ReplyAction="*")]
@@ -106,6 +126,135 @@ namespace EddCliente.ReferenciaServidor {
         
         public UsuariosgrafoResponseBody(byte[] UsuariosgrafoResult) {
             this.UsuariosgrafoResult = UsuariosgrafoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class espejoArbolRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="espejoArbol", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.espejoArbolRequestBody Body;
+        
+        public espejoArbolRequest() {
+        }
+        
+        public espejoArbolRequest(EddCliente.ReferenciaServidor.espejoArbolRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class espejoArbolRequestBody {
+        
+        public espejoArbolRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class espejoArbolResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="espejoArbolResponse", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.espejoArbolResponseBody Body;
+        
+        public espejoArbolResponse() {
+        }
+        
+        public espejoArbolResponse(EddCliente.ReferenciaServidor.espejoArbolResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://servidoredd2/")]
+    public partial class espejoArbolResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public byte[] espejoArbolResult;
+        
+        public espejoArbolResponseBody() {
+        }
+        
+        public espejoArbolResponseBody(byte[] espejoArbolResult) {
+            this.espejoArbolResult = espejoArbolResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class MatrizGrafoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="MatrizGrafo", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.MatrizGrafoRequestBody Body;
+        
+        public MatrizGrafoRequest() {
+        }
+        
+        public MatrizGrafoRequest(EddCliente.ReferenciaServidor.MatrizGrafoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://servidoredd2/")]
+    public partial class MatrizGrafoRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int nivel;
+        
+        public MatrizGrafoRequestBody() {
+        }
+        
+        public MatrizGrafoRequestBody(int nivel) {
+            this.nivel = nivel;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class MatrizGrafoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="MatrizGrafoResponse", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.MatrizGrafoResponseBody Body;
+        
+        public MatrizGrafoResponse() {
+        }
+        
+        public MatrizGrafoResponse(EddCliente.ReferenciaServidor.MatrizGrafoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://servidoredd2/")]
+    public partial class MatrizGrafoResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public byte[] MatrizGrafoResult;
+        
+        public MatrizGrafoResponseBody() {
+        }
+        
+        public MatrizGrafoResponseBody(byte[] MatrizGrafoResult) {
+            this.MatrizGrafoResult = MatrizGrafoResult;
         }
     }
     
@@ -630,6 +779,14 @@ namespace EddCliente.ReferenciaServidor {
                 base(binding, remoteAddress) {
         }
         
+        public void reiniciarArbol() {
+            base.Channel.reiniciarArbol();
+        }
+        
+        public void reiniciarMatriz() {
+            base.Channel.reiniciarMatriz();
+        }
+        
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         EddCliente.ReferenciaServidor.UsuariosgrafoResponse EddCliente.ReferenciaServidor.WebServiceSoap.Usuariosgrafo(EddCliente.ReferenciaServidor.UsuariosgrafoRequest request) {
             return base.Channel.Usuariosgrafo(request);
@@ -640,6 +797,39 @@ namespace EddCliente.ReferenciaServidor {
             inValue.Body = new EddCliente.ReferenciaServidor.UsuariosgrafoRequestBody();
             EddCliente.ReferenciaServidor.UsuariosgrafoResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).Usuariosgrafo(inValue);
             return retVal.Body.UsuariosgrafoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EddCliente.ReferenciaServidor.espejoArbolResponse EddCliente.ReferenciaServidor.WebServiceSoap.espejoArbol(EddCliente.ReferenciaServidor.espejoArbolRequest request) {
+            return base.Channel.espejoArbol(request);
+        }
+        
+        public byte[] espejoArbol() {
+            EddCliente.ReferenciaServidor.espejoArbolRequest inValue = new EddCliente.ReferenciaServidor.espejoArbolRequest();
+            inValue.Body = new EddCliente.ReferenciaServidor.espejoArbolRequestBody();
+            EddCliente.ReferenciaServidor.espejoArbolResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).espejoArbol(inValue);
+            return retVal.Body.espejoArbolResult;
+        }
+        
+        public byte getGArbol(int i) {
+            return base.Channel.getGArbol(i);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EddCliente.ReferenciaServidor.MatrizGrafoResponse EddCliente.ReferenciaServidor.WebServiceSoap.MatrizGrafo(EddCliente.ReferenciaServidor.MatrizGrafoRequest request) {
+            return base.Channel.MatrizGrafo(request);
+        }
+        
+        public byte[] MatrizGrafo(int nivel) {
+            EddCliente.ReferenciaServidor.MatrizGrafoRequest inValue = new EddCliente.ReferenciaServidor.MatrizGrafoRequest();
+            inValue.Body = new EddCliente.ReferenciaServidor.MatrizGrafoRequestBody();
+            inValue.Body.nivel = nivel;
+            EddCliente.ReferenciaServidor.MatrizGrafoResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).MatrizGrafo(inValue);
+            return retVal.Body.MatrizGrafoResult;
+        }
+        
+        public byte getGMatriz(int i) {
+            return base.Channel.getGMatriz(i);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

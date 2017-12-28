@@ -10,10 +10,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Administrador.aspx">
-      <publishTime>12/27/2017 17:33:48</publishTime>
+      <publishTime>12/28/2017 12:24:59</publishTime>
     </File>
     <File Include="bin/EddCliente.dll">
-      <publishTime>12/27/2017 17:33:52</publishTime>
+      <publishTime>12/28/2017 14:13:06</publishTime>
     </File>
     <File Include="estilo.css">
       <publishTime>12/27/2017 15:51:25</publishTime>
@@ -22,7 +22,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/27/2017 12:45:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/27/2017 00:18:09</publishTime>
+      <publishTime>12/28/2017 14:13:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

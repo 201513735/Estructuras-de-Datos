@@ -2,6 +2,18 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://servidoredd2/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servidoredd2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://servidoredd2/">
+      <s:element name="reiniciarArbol">
+        <s:complexType />
+      </s:element>
+      <s:element name="reiniciarArbolResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="reiniciarMatriz">
+        <s:complexType />
+      </s:element>
+      <s:element name="reiniciarMatrizResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="Usuariosgrafo">
         <s:complexType />
       </s:element>
@@ -9,6 +21,58 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="UsuariosgrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="espejoArbol">
+        <s:complexType />
+      </s:element>
+      <s:element name="espejoArbolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="espejoArbolResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGArbol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="i" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGArbolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getGArbolResult" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MatrizGrafo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MatrizGrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MatrizGrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGMatriz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="i" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGMatrizResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getGMatrizResult" type="s:unsignedByte" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -103,11 +167,47 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="reiniciarArbolSoapIn">
+    <wsdl:part name="parameters" element="tns:reiniciarArbol" />
+  </wsdl:message>
+  <wsdl:message name="reiniciarArbolSoapOut">
+    <wsdl:part name="parameters" element="tns:reiniciarArbolResponse" />
+  </wsdl:message>
+  <wsdl:message name="reiniciarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:reiniciarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="reiniciarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:reiniciarMatrizResponse" />
+  </wsdl:message>
   <wsdl:message name="UsuariosgrafoSoapIn">
     <wsdl:part name="parameters" element="tns:Usuariosgrafo" />
   </wsdl:message>
   <wsdl:message name="UsuariosgrafoSoapOut">
     <wsdl:part name="parameters" element="tns:UsuariosgrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="espejoArbolSoapIn">
+    <wsdl:part name="parameters" element="tns:espejoArbol" />
+  </wsdl:message>
+  <wsdl:message name="espejoArbolSoapOut">
+    <wsdl:part name="parameters" element="tns:espejoArbolResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGArbolSoapIn">
+    <wsdl:part name="parameters" element="tns:getGArbol" />
+  </wsdl:message>
+  <wsdl:message name="getGArbolSoapOut">
+    <wsdl:part name="parameters" element="tns:getGArbolResponse" />
+  </wsdl:message>
+  <wsdl:message name="MatrizGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:MatrizGrafo" />
+  </wsdl:message>
+  <wsdl:message name="MatrizGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:MatrizGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:getGMatriz" />
+  </wsdl:message>
+  <wsdl:message name="getGMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:getGMatrizResponse" />
   </wsdl:message>
   <wsdl:message name="IniciarSesionSoapIn">
     <wsdl:part name="parameters" element="tns:IniciarSesion" />
@@ -152,9 +252,33 @@
     <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="reiniciarArbol">
+      <wsdl:input message="tns:reiniciarArbolSoapIn" />
+      <wsdl:output message="tns:reiniciarArbolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarMatriz">
+      <wsdl:input message="tns:reiniciarMatrizSoapIn" />
+      <wsdl:output message="tns:reiniciarMatrizSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Usuariosgrafo">
       <wsdl:input message="tns:UsuariosgrafoSoapIn" />
       <wsdl:output message="tns:UsuariosgrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="espejoArbol">
+      <wsdl:input message="tns:espejoArbolSoapIn" />
+      <wsdl:output message="tns:espejoArbolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGArbol">
+      <wsdl:input message="tns:getGArbolSoapIn" />
+      <wsdl:output message="tns:getGArbolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MatrizGrafo">
+      <wsdl:input message="tns:MatrizGrafoSoapIn" />
+      <wsdl:output message="tns:MatrizGrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGMatriz">
+      <wsdl:input message="tns:getGMatrizSoapIn" />
+      <wsdl:output message="tns:getGMatrizSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="IniciarSesion">
       <wsdl:input message="tns:IniciarSesionSoapIn" />
@@ -187,8 +311,62 @@
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="reiniciarArbol">
+      <soap:operation soapAction="http://servidoredd2/reiniciarArbol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarMatriz">
+      <soap:operation soapAction="http://servidoredd2/reiniciarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Usuariosgrafo">
       <soap:operation soapAction="http://servidoredd2/Usuariosgrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="espejoArbol">
+      <soap:operation soapAction="http://servidoredd2/espejoArbol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGArbol">
+      <soap:operation soapAction="http://servidoredd2/getGArbol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatrizGrafo">
+      <soap:operation soapAction="http://servidoredd2/MatrizGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGMatriz">
+      <soap:operation soapAction="http://servidoredd2/getGMatriz" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -262,8 +440,62 @@
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="reiniciarArbol">
+      <soap12:operation soapAction="http://servidoredd2/reiniciarArbol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarMatriz">
+      <soap12:operation soapAction="http://servidoredd2/reiniciarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Usuariosgrafo">
       <soap12:operation soapAction="http://servidoredd2/Usuariosgrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="espejoArbol">
+      <soap12:operation soapAction="http://servidoredd2/espejoArbol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGArbol">
+      <soap12:operation soapAction="http://servidoredd2/getGArbol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatrizGrafo">
+      <soap12:operation soapAction="http://servidoredd2/MatrizGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGMatriz">
+      <soap12:operation soapAction="http://servidoredd2/getGMatriz" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

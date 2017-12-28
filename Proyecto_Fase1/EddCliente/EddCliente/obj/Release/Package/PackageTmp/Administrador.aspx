@@ -28,11 +28,16 @@
     
         <asp:Panel CssClass="panel" ID="Panel1" runat="server" Width="526px">
             Carga Masiva de Datos<br />
+            <asp:FileUpload ID="fileJugadores" runat="server" />
+            <br />
+            <br />
             <asp:Button ID="botonCargarJugadores" runat="server" Text="Cargar Jugadores" Width="150px" OnClick="botonCargarJugadores_Click" />
             <br />
-            <asp:Button ID="botonCargarJuegos" runat="server" Text="Cargar Partidas" Width="150px" />
+            <asp:Button ID="botonCargarJuegos" runat="server" Text="Cargar Partidas" Width="150px" OnClick="botonCargarJuegos_Click" />
             <br />
-            <asp:Button ID="botonCargarTablero" runat="server" Text="Cargar Tablero" Width="150px" />
+            <asp:Button ID="botonCargarTablero" runat="server" Text="Cargar Tablero" Width="150px" OnClick="botonCargarTablero_Click" />
+            <br />
+            <asp:Label ID="labelArchivo" runat="server" ForeColor="Black"></asp:Label>
             <br />
             <br />
             Usuarios<br />&nbsp;<asp:Label ID="Label1" runat="server" ForeColor="Black" Text="Nickname  "></asp:Label>
@@ -60,7 +65,7 @@
             <asp:TextBox ID="textNivelMatriz" runat="server" Width="36px"></asp:TextBox>
 
             &nbsp;
-            <asp:Button ID="botonReporteMatriz" runat="server" Text="Generar Reporte" Width="122px" />
+            <asp:Button ID="botonReporteMatriz" runat="server" Text="Generar Reporte" Width="122px" OnClick="botonReporteMatriz_Click" />
 
             <br />
             <asp:Label ID="Label5" runat="server" ForeColor="Black" Text="Reporte de Usuarios"></asp:Label>

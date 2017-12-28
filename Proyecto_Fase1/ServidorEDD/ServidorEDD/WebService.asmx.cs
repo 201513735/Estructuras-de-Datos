@@ -20,11 +20,24 @@ namespace ServidorEDD
     {
         static ArbolBinario arbol = new ArbolBinario();
         static Matriz matriz = new Matriz(1);
+        static Byte[] gArbol, gMatriz;
 
         static string prueba, jugador1 = "", jugador2 = "", tiempo, dot;
         static bool partidaActiva = false;
         static int nivel0, nivel1, nivel2, nivel3, tamañoX, tamañoY, tipo;
 
+
+        [WebMethod]
+        public void reiniciarArbol()
+        {
+            arbol = new ArbolBinario();
+        }
+
+        [WebMethod]
+        public void reiniciarMatriz()
+        {
+            matriz = new Matriz(1);
+        }
 
         [WebMethod]
         public Byte[] Usuariosgrafo()
@@ -41,22 +54,27 @@ namespace ServidorEDD
 
             Byte[] a= new Byte[0];
 
-                String comando = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot -Tpng C:\\GrafosEDD\\grafoArbol.dot -o C:\\GrafosEDD\\grafoArbol.png";
-                System.Diagnostics.ProcessStartInfo procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/c" + comando);
-                procStartInfo.RedirectStandardOutput = true;
-                procStartInfo.UseShellExecute = false;
+            String comando = "\"C:/Program Files (x86)/Graphviz2.38/bin/dot.exe\" -Tpng C:\\GrafosEDD\\grafoArbol.dot -o C:\\GrafosEDD\\grafoArbol2.png";
+            var procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd.exe", "/c" + comando);
+            var proc = new System.Diagnostics.Process { StartInfo= procStartInfo };
+            proc.Start();
+            proc.WaitForExit();
 
-                System.Diagnostics.Process proc = new System.Diagnostics.Process();
-                proc.StartInfo = procStartInfo;
-                proc.Start();
+            FileStream foto = new FileStream("C:\\GrafosEDD\\grafoArbol2.png", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            a = new Byte[foto.Length];
+            BinaryReader reader = new BinaryReader(foto);
+            a = reader.ReadBytes(Convert.ToInt32(foto.Length));
+            foto.Close();
 
-                //FileStream foto = new FileStream("C:\\GrafosEDD\\grafoArbol.png", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                //a = new Byte[foto.Length];
-                //BinaryReader reader = new BinaryReader(foto);
-                //a = reader.ReadBytes(Convert.ToInt32(foto.Length));
-                //foto.Close();
+            gArbol = a;
 
             return a;
+        }
+
+        [WebMethod]
+        public Byte getGArbol(int i)
+        {
+            return gArbol[i];
         }
 
         public void enlacesNodosArbol(NodoArbol n)
@@ -108,6 +126,139 @@ namespace ServidorEDD
                 nodosArbol(n.Izq);
                 nodosArbol(n.Der);
             }
+        }
+
+        [WebMethod]
+        public Byte[] MatrizGrafo(int nivel)
+        {
+            Matriz m = matriz;
+            if (m.Nivel != nivel)
+            {
+                if (nivel == 0)
+                {
+                    m = m.Anterior;
+                }else if(nivel >= 2)
+                {
+                    m = m.Siguiente;
+                    while (m != null)
+                    {
+                        if (m.Nivel == nivel)
+                        {
+                            break;
+                        }
+                        m = m.Siguiente;
+                    }
+                }
+            }
+
+            if (m != null)
+            {
+                dot = "digraph Matriz{\n rankdir=UD;\n node[shape=box];\n {\n rank=min;\n m[label=\"Matriz " +m.Nivel.ToString() + "\"];\n";
+                Encabezado column = m.Columnas.Cabeza;
+                while (column != null)
+                {
+                    dot = dot + "Y"+column.Id.ToString()+"[label=\""+Convert.ToChar(column.Id).ToString()+"\",rankdir=LR];\n";
+                    column = column.Siguiente;
+                }
+
+                dot = dot + "}\n";
+
+                Encabezado f = m.Filas.Cabeza;
+                NodoMatriz n;
+                while (f != null)
+                {
+                    dot = dot + "{\n rank=same;\n X" + f.Id.ToString() + "[label=\"" + f.Id.ToString() + "\"]\n";
+                    n = f.Acceso;
+                    while (n != null)
+                    {
+                        dot = dot + "F" + n.Fila.ToString() + "_C" + Convert.ToChar(n.Columna).ToString() + "[label=\"Nombre: " + n.Nave.Nombre +"--Vida: "+n.Nave.Vida.ToString()+ "\"]\n";
+                        n = n.Derecha;
+                    }
+                    dot = dot + "}\n";
+                    f = f.Siguiente;
+                }
+
+                //ENLACES COLUMNAS
+                column = m.Columnas.Cabeza;
+
+                if (column != null)
+                {
+                    dot = dot + "m->Y" + column.Id.ToString()+";\n";
+                }
+
+                while (column.Siguiente != null)
+                {
+                    dot = dot + "Y"+column.Id.ToString()+"->Y"+column.Siguiente.Id.ToString()+";\n";
+                    dot = dot + "Y" + column.Siguiente.Id.ToString() + "->Y" + column.Id.ToString() + ";\n";
+                    column = column.Siguiente;
+                }
+
+                column = m.Columnas.Cabeza;
+                while (column != null)
+                {
+                    dot = dot + "Y" + column.Id.ToString() + "->F" + column.Acceso.Fila.ToString() + "_C" + Convert.ToChar(column.Id).ToString() + ";\n";
+                    column = column.Siguiente;
+                }
+
+                //ENLACES FILAS
+                f = m.Filas.Cabeza;
+                if (f != null)
+                {
+                    dot = dot + "m->X" + f.Id.ToString() + "[rankdir=UD];\n";
+                }
+
+                while (f.Siguiente != null)
+                {
+                    dot = dot + "X" + f.Id.ToString() + "->X" + f.Siguiente.Id.ToString() + "[rankdir=UD];\n";
+                    dot = dot + "X" + f.Siguiente.Id.ToString() + "->X" + f.Id.ToString() + "[rankdir=UD];\n";
+                    f = f.Siguiente;
+                }
+
+                f = m.Filas.Cabeza;
+                while (f != null)
+                {
+                    n = f.Acceso;
+                    dot = dot + "X" + f.Id.ToString() + "->F" + f.Id.ToString() + "_C" + Convert.ToChar(n.Columna).ToString() + "[constraint=false];\n";
+                    while (n.Derecha != null)
+                    {
+                        dot = dot + "F" + n.Fila.ToString() + "_C" + Convert.ToChar(n.Columna).ToString() + "->F" + n.Derecha.Fila.ToString() + "_C" + Convert.ToChar(n.Derecha.Columna).ToString() + "[constraint=false];\n";
+                        dot = dot + "F" + n.Derecha.Fila.ToString() + "_C" + Convert.ToChar(n.Derecha.Columna).ToString() + "->F" + n.Fila.ToString() + "_C" + Convert.ToChar(n.Columna).ToString() + "[constraint=false];\n";
+                        n = n.Derecha;
+                    }
+                    f = f.Siguiente;
+                }
+
+                dot = dot + "}\n";
+
+                TextWriter t = new StreamWriter(@"C:\GrafosEDD\grafoMatriz.dot");
+                t.WriteLine(dot);
+                t.Close();
+
+            }
+
+            Byte[] a = new Byte[0];
+
+            String comando = "\"C:/Program Files (x86)/Graphviz2.38/bin/dot.exe\" -Tpng C:\\GrafosEDD\\grafoMatriz.dot -o C:\\GrafosEDD\\grafoMatriz.png";
+            var procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd.exe", "/c" + comando);
+            var proc = new System.Diagnostics.Process { StartInfo = procStartInfo };
+            proc.Start();
+            proc.WaitForExit();
+
+            FileStream foto = new FileStream("C:\\GrafosEDD\\grafoMatriz.png", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            a = new Byte[foto.Length];
+            BinaryReader reader = new BinaryReader(foto);
+            a = reader.ReadBytes(Convert.ToInt32(foto.Length));
+            foto.Close();
+
+            gMatriz = a;
+
+            return a;
+        }
+
+        [WebMethod]
+        public Byte getGMatriz(int i)
+        {
+            return gMatriz[i];
         }
 
         [WebMethod]
