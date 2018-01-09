@@ -1,0 +1,1471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://servidoredd2/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servidoredd2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://servidoredd2/">
+      <s:element name="accionContactos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nick2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="accionContactosResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="topGrafo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="top" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="topGrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="topGrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="jugador" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setBaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="setTiempo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tiempo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setTiempoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getJugador1">
+        <s:complexType />
+      </s:element>
+      <s:element name="getJugador1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJugador1Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJugador2">
+        <s:complexType />
+      </s:element>
+      <s:element name="getJugador2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJugador2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="moverUnidad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="moverUnidadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="moverUnidadResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="atacarUnidad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="columna" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fila" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="atacarUnidadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="atacarUnidadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="terminarTurno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="terminarTurnoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getActivo">
+        <s:complexType />
+      </s:element>
+      <s:element name="getActivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getActivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="contarUnidades">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="contarUnidadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contarUnidadesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJugador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJugadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getJugadorResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDatoInt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="n" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDatoIntResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getDatoIntResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTiempo">
+        <s:complexType />
+      </s:element>
+      <s:element name="getTiempoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTiempoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOponente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOponenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOponenteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTipo">
+        <s:complexType />
+      </s:element>
+      <s:element name="getTipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTipoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="definirArbolB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="indice" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="parametro" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="definirArbolBResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="valoresPartida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="n0" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="n1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="n2" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="n3" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tx" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ty" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="t" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="valoresPartidaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="reiniciarArbol">
+        <s:complexType />
+      </s:element>
+      <s:element name="reiniciarArbolResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="reiniciarMatriz">
+        <s:complexType />
+      </s:element>
+      <s:element name="reiniciarMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPartidaActiva">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPartidaActivaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getPartidaActivaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setPartidaActiva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="valor" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setPartidaActivaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Usuariosgrafo">
+        <s:complexType />
+      </s:element>
+      <s:element name="UsuariosgrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuariosgrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="espejoArbol">
+        <s:complexType />
+      </s:element>
+      <s:element name="espejoArbolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="espejoArbolResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="arbolBGrafo">
+        <s:complexType />
+      </s:element>
+      <s:element name="arbolBGrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arbolBGrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AVLGrafo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AVLGrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AVLGrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarContactoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertarArbolB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="unidadAtacante" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="resultado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="unidadDañada" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emisor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="receptor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fecha" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tiempoRestante" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numero" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarArbolBResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MatrizGrafo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nivel" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MatrizGrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MatrizGrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CerrarSesion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CerrarSesionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IniciarSesion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IniciarSesionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IniciarSesionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarArbol">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="conexion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarArbolResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertarJuego">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oponente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="desplegadas" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sobrevivientes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="destruidas" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gano" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarJuegoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertarMatriz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fila" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="columna" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarMatrizResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ModificarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nickname2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarUsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EliminarUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarUsuarioResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="accionContactosSoapIn">
+    <wsdl:part name="parameters" element="tns:accionContactos" />
+  </wsdl:message>
+  <wsdl:message name="accionContactosSoapOut">
+    <wsdl:part name="parameters" element="tns:accionContactosResponse" />
+  </wsdl:message>
+  <wsdl:message name="topGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:topGrafo" />
+  </wsdl:message>
+  <wsdl:message name="topGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:topGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="setBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:setBase" />
+  </wsdl:message>
+  <wsdl:message name="setBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:setBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="setTiempoSoapIn">
+    <wsdl:part name="parameters" element="tns:setTiempo" />
+  </wsdl:message>
+  <wsdl:message name="setTiempoSoapOut">
+    <wsdl:part name="parameters" element="tns:setTiempoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getJugador1SoapIn">
+    <wsdl:part name="parameters" element="tns:getJugador1" />
+  </wsdl:message>
+  <wsdl:message name="getJugador1SoapOut">
+    <wsdl:part name="parameters" element="tns:getJugador1Response" />
+  </wsdl:message>
+  <wsdl:message name="getJugador2SoapIn">
+    <wsdl:part name="parameters" element="tns:getJugador2" />
+  </wsdl:message>
+  <wsdl:message name="getJugador2SoapOut">
+    <wsdl:part name="parameters" element="tns:getJugador2Response" />
+  </wsdl:message>
+  <wsdl:message name="moverUnidadSoapIn">
+    <wsdl:part name="parameters" element="tns:moverUnidad" />
+  </wsdl:message>
+  <wsdl:message name="moverUnidadSoapOut">
+    <wsdl:part name="parameters" element="tns:moverUnidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="atacarUnidadSoapIn">
+    <wsdl:part name="parameters" element="tns:atacarUnidad" />
+  </wsdl:message>
+  <wsdl:message name="atacarUnidadSoapOut">
+    <wsdl:part name="parameters" element="tns:atacarUnidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="terminarTurnoSoapIn">
+    <wsdl:part name="parameters" element="tns:terminarTurno" />
+  </wsdl:message>
+  <wsdl:message name="terminarTurnoSoapOut">
+    <wsdl:part name="parameters" element="tns:terminarTurnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getActivoSoapIn">
+    <wsdl:part name="parameters" element="tns:getActivo" />
+  </wsdl:message>
+  <wsdl:message name="getActivoSoapOut">
+    <wsdl:part name="parameters" element="tns:getActivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="contarUnidadesSoapIn">
+    <wsdl:part name="parameters" element="tns:contarUnidades" />
+  </wsdl:message>
+  <wsdl:message name="contarUnidadesSoapOut">
+    <wsdl:part name="parameters" element="tns:contarUnidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getJugadorSoapIn">
+    <wsdl:part name="parameters" element="tns:getJugador" />
+  </wsdl:message>
+  <wsdl:message name="getJugadorSoapOut">
+    <wsdl:part name="parameters" element="tns:getJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDatoIntSoapIn">
+    <wsdl:part name="parameters" element="tns:getDatoInt" />
+  </wsdl:message>
+  <wsdl:message name="getDatoIntSoapOut">
+    <wsdl:part name="parameters" element="tns:getDatoIntResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTiempoSoapIn">
+    <wsdl:part name="parameters" element="tns:getTiempo" />
+  </wsdl:message>
+  <wsdl:message name="getTiempoSoapOut">
+    <wsdl:part name="parameters" element="tns:getTiempoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOponenteSoapIn">
+    <wsdl:part name="parameters" element="tns:getOponente" />
+  </wsdl:message>
+  <wsdl:message name="getOponenteSoapOut">
+    <wsdl:part name="parameters" element="tns:getOponenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTipoSoapIn">
+    <wsdl:part name="parameters" element="tns:getTipo" />
+  </wsdl:message>
+  <wsdl:message name="getTipoSoapOut">
+    <wsdl:part name="parameters" element="tns:getTipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="definirArbolBSoapIn">
+    <wsdl:part name="parameters" element="tns:definirArbolB" />
+  </wsdl:message>
+  <wsdl:message name="definirArbolBSoapOut">
+    <wsdl:part name="parameters" element="tns:definirArbolBResponse" />
+  </wsdl:message>
+  <wsdl:message name="valoresPartidaSoapIn">
+    <wsdl:part name="parameters" element="tns:valoresPartida" />
+  </wsdl:message>
+  <wsdl:message name="valoresPartidaSoapOut">
+    <wsdl:part name="parameters" element="tns:valoresPartidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="reiniciarArbolSoapIn">
+    <wsdl:part name="parameters" element="tns:reiniciarArbol" />
+  </wsdl:message>
+  <wsdl:message name="reiniciarArbolSoapOut">
+    <wsdl:part name="parameters" element="tns:reiniciarArbolResponse" />
+  </wsdl:message>
+  <wsdl:message name="reiniciarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:reiniciarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="reiniciarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:reiniciarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPartidaActivaSoapIn">
+    <wsdl:part name="parameters" element="tns:getPartidaActiva" />
+  </wsdl:message>
+  <wsdl:message name="getPartidaActivaSoapOut">
+    <wsdl:part name="parameters" element="tns:getPartidaActivaResponse" />
+  </wsdl:message>
+  <wsdl:message name="setPartidaActivaSoapIn">
+    <wsdl:part name="parameters" element="tns:setPartidaActiva" />
+  </wsdl:message>
+  <wsdl:message name="setPartidaActivaSoapOut">
+    <wsdl:part name="parameters" element="tns:setPartidaActivaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosgrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:Usuariosgrafo" />
+  </wsdl:message>
+  <wsdl:message name="UsuariosgrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuariosgrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="espejoArbolSoapIn">
+    <wsdl:part name="parameters" element="tns:espejoArbol" />
+  </wsdl:message>
+  <wsdl:message name="espejoArbolSoapOut">
+    <wsdl:part name="parameters" element="tns:espejoArbolResponse" />
+  </wsdl:message>
+  <wsdl:message name="arbolBGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:arbolBGrafo" />
+  </wsdl:message>
+  <wsdl:message name="arbolBGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:arbolBGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AVLGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:AVLGrafo" />
+  </wsdl:message>
+  <wsdl:message name="AVLGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:AVLGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarContacto" />
+  </wsdl:message>
+  <wsdl:message name="InsertarContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarContactoResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarArbolBSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarArbolB" />
+  </wsdl:message>
+  <wsdl:message name="insertarArbolBSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarArbolBResponse" />
+  </wsdl:message>
+  <wsdl:message name="MatrizGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:MatrizGrafo" />
+  </wsdl:message>
+  <wsdl:message name="MatrizGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:MatrizGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CerrarSesionSoapIn">
+    <wsdl:part name="parameters" element="tns:CerrarSesion" />
+  </wsdl:message>
+  <wsdl:message name="CerrarSesionSoapOut">
+    <wsdl:part name="parameters" element="tns:CerrarSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IniciarSesionSoapIn">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IniciarSesionSoapOut">
+    <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarArbolSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarArbol" />
+  </wsdl:message>
+  <wsdl:message name="InsertarArbolSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarArbolResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarJuegoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarJuego" />
+  </wsdl:message>
+  <wsdl:message name="InsertarJuegoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarJuegoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarMatrizSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarMatriz" />
+  </wsdl:message>
+  <wsdl:message name="InsertarMatrizSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarMatrizResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ModificarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="EliminarUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="accionContactos">
+      <wsdl:input message="tns:accionContactosSoapIn" />
+      <wsdl:output message="tns:accionContactosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="topGrafo">
+      <wsdl:input message="tns:topGrafoSoapIn" />
+      <wsdl:output message="tns:topGrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setBase">
+      <wsdl:input message="tns:setBaseSoapIn" />
+      <wsdl:output message="tns:setBaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setTiempo">
+      <wsdl:input message="tns:setTiempoSoapIn" />
+      <wsdl:output message="tns:setTiempoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJugador1">
+      <wsdl:input message="tns:getJugador1SoapIn" />
+      <wsdl:output message="tns:getJugador1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJugador2">
+      <wsdl:input message="tns:getJugador2SoapIn" />
+      <wsdl:output message="tns:getJugador2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="moverUnidad">
+      <wsdl:input message="tns:moverUnidadSoapIn" />
+      <wsdl:output message="tns:moverUnidadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="atacarUnidad">
+      <wsdl:input message="tns:atacarUnidadSoapIn" />
+      <wsdl:output message="tns:atacarUnidadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="terminarTurno">
+      <wsdl:input message="tns:terminarTurnoSoapIn" />
+      <wsdl:output message="tns:terminarTurnoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getActivo">
+      <wsdl:input message="tns:getActivoSoapIn" />
+      <wsdl:output message="tns:getActivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="contarUnidades">
+      <wsdl:input message="tns:contarUnidadesSoapIn" />
+      <wsdl:output message="tns:contarUnidadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJugador">
+      <wsdl:input message="tns:getJugadorSoapIn" />
+      <wsdl:output message="tns:getJugadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDatoInt">
+      <wsdl:input message="tns:getDatoIntSoapIn" />
+      <wsdl:output message="tns:getDatoIntSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTiempo">
+      <wsdl:input message="tns:getTiempoSoapIn" />
+      <wsdl:output message="tns:getTiempoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOponente">
+      <wsdl:input message="tns:getOponenteSoapIn" />
+      <wsdl:output message="tns:getOponenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTipo">
+      <wsdl:input message="tns:getTipoSoapIn" />
+      <wsdl:output message="tns:getTipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="definirArbolB">
+      <wsdl:input message="tns:definirArbolBSoapIn" />
+      <wsdl:output message="tns:definirArbolBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="valoresPartida">
+      <wsdl:input message="tns:valoresPartidaSoapIn" />
+      <wsdl:output message="tns:valoresPartidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarArbol">
+      <wsdl:input message="tns:reiniciarArbolSoapIn" />
+      <wsdl:output message="tns:reiniciarArbolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarMatriz">
+      <wsdl:input message="tns:reiniciarMatrizSoapIn" />
+      <wsdl:output message="tns:reiniciarMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartidaActiva">
+      <wsdl:input message="tns:getPartidaActivaSoapIn" />
+      <wsdl:output message="tns:getPartidaActivaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setPartidaActiva">
+      <wsdl:input message="tns:setPartidaActivaSoapIn" />
+      <wsdl:output message="tns:setPartidaActivaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Usuariosgrafo">
+      <wsdl:input message="tns:UsuariosgrafoSoapIn" />
+      <wsdl:output message="tns:UsuariosgrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="espejoArbol">
+      <wsdl:input message="tns:espejoArbolSoapIn" />
+      <wsdl:output message="tns:espejoArbolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="arbolBGrafo">
+      <wsdl:input message="tns:arbolBGrafoSoapIn" />
+      <wsdl:output message="tns:arbolBGrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AVLGrafo">
+      <wsdl:input message="tns:AVLGrafoSoapIn" />
+      <wsdl:output message="tns:AVLGrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarContacto">
+      <wsdl:input message="tns:InsertarContactoSoapIn" />
+      <wsdl:output message="tns:InsertarContactoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarArbolB">
+      <wsdl:input message="tns:insertarArbolBSoapIn" />
+      <wsdl:output message="tns:insertarArbolBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MatrizGrafo">
+      <wsdl:input message="tns:MatrizGrafoSoapIn" />
+      <wsdl:output message="tns:MatrizGrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <wsdl:input message="tns:CerrarSesionSoapIn" />
+      <wsdl:output message="tns:CerrarSesionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input message="tns:IniciarSesionSoapIn" />
+      <wsdl:output message="tns:IniciarSesionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarArbol">
+      <wsdl:input message="tns:InsertarArbolSoapIn" />
+      <wsdl:output message="tns:InsertarArbolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarJuego">
+      <wsdl:input message="tns:InsertarJuegoSoapIn" />
+      <wsdl:output message="tns:InsertarJuegoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarMatriz">
+      <wsdl:input message="tns:InsertarMatrizSoapIn" />
+      <wsdl:output message="tns:InsertarMatrizSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <wsdl:input message="tns:ModificarUsuarioSoapIn" />
+      <wsdl:output message="tns:ModificarUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input message="tns:EliminarUsuarioSoapIn" />
+      <wsdl:output message="tns:EliminarUsuarioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="accionContactos">
+      <soap:operation soapAction="http://servidoredd2/accionContactos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="topGrafo">
+      <soap:operation soapAction="http://servidoredd2/topGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setBase">
+      <soap:operation soapAction="http://servidoredd2/setBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setTiempo">
+      <soap:operation soapAction="http://servidoredd2/setTiempo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJugador1">
+      <soap:operation soapAction="http://servidoredd2/getJugador1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJugador2">
+      <soap:operation soapAction="http://servidoredd2/getJugador2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moverUnidad">
+      <soap:operation soapAction="http://servidoredd2/moverUnidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="atacarUnidad">
+      <soap:operation soapAction="http://servidoredd2/atacarUnidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="terminarTurno">
+      <soap:operation soapAction="http://servidoredd2/terminarTurno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivo">
+      <soap:operation soapAction="http://servidoredd2/getActivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="contarUnidades">
+      <soap:operation soapAction="http://servidoredd2/contarUnidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJugador">
+      <soap:operation soapAction="http://servidoredd2/getJugador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDatoInt">
+      <soap:operation soapAction="http://servidoredd2/getDatoInt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTiempo">
+      <soap:operation soapAction="http://servidoredd2/getTiempo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOponente">
+      <soap:operation soapAction="http://servidoredd2/getOponente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipo">
+      <soap:operation soapAction="http://servidoredd2/getTipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="definirArbolB">
+      <soap:operation soapAction="http://servidoredd2/definirArbolB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="valoresPartida">
+      <soap:operation soapAction="http://servidoredd2/valoresPartida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarArbol">
+      <soap:operation soapAction="http://servidoredd2/reiniciarArbol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarMatriz">
+      <soap:operation soapAction="http://servidoredd2/reiniciarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPartidaActiva">
+      <soap:operation soapAction="http://servidoredd2/getPartidaActiva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPartidaActiva">
+      <soap:operation soapAction="http://servidoredd2/setPartidaActiva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuariosgrafo">
+      <soap:operation soapAction="http://servidoredd2/Usuariosgrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="espejoArbol">
+      <soap:operation soapAction="http://servidoredd2/espejoArbol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="arbolBGrafo">
+      <soap:operation soapAction="http://servidoredd2/arbolBGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AVLGrafo">
+      <soap:operation soapAction="http://servidoredd2/AVLGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarContacto">
+      <soap:operation soapAction="http://servidoredd2/InsertarContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarArbolB">
+      <soap:operation soapAction="http://servidoredd2/insertarArbolB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatrizGrafo">
+      <soap:operation soapAction="http://servidoredd2/MatrizGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <soap:operation soapAction="http://servidoredd2/CerrarSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <soap:operation soapAction="http://servidoredd2/IniciarSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarArbol">
+      <soap:operation soapAction="http://servidoredd2/InsertarArbol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarJuego">
+      <soap:operation soapAction="http://servidoredd2/InsertarJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarMatriz">
+      <soap:operation soapAction="http://servidoredd2/InsertarMatriz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <soap:operation soapAction="http://servidoredd2/ModificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://servidoredd2/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="accionContactos">
+      <soap12:operation soapAction="http://servidoredd2/accionContactos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="topGrafo">
+      <soap12:operation soapAction="http://servidoredd2/topGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setBase">
+      <soap12:operation soapAction="http://servidoredd2/setBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setTiempo">
+      <soap12:operation soapAction="http://servidoredd2/setTiempo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJugador1">
+      <soap12:operation soapAction="http://servidoredd2/getJugador1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJugador2">
+      <soap12:operation soapAction="http://servidoredd2/getJugador2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moverUnidad">
+      <soap12:operation soapAction="http://servidoredd2/moverUnidad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="atacarUnidad">
+      <soap12:operation soapAction="http://servidoredd2/atacarUnidad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="terminarTurno">
+      <soap12:operation soapAction="http://servidoredd2/terminarTurno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActivo">
+      <soap12:operation soapAction="http://servidoredd2/getActivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="contarUnidades">
+      <soap12:operation soapAction="http://servidoredd2/contarUnidades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJugador">
+      <soap12:operation soapAction="http://servidoredd2/getJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDatoInt">
+      <soap12:operation soapAction="http://servidoredd2/getDatoInt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTiempo">
+      <soap12:operation soapAction="http://servidoredd2/getTiempo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOponente">
+      <soap12:operation soapAction="http://servidoredd2/getOponente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipo">
+      <soap12:operation soapAction="http://servidoredd2/getTipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="definirArbolB">
+      <soap12:operation soapAction="http://servidoredd2/definirArbolB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="valoresPartida">
+      <soap12:operation soapAction="http://servidoredd2/valoresPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarArbol">
+      <soap12:operation soapAction="http://servidoredd2/reiniciarArbol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reiniciarMatriz">
+      <soap12:operation soapAction="http://servidoredd2/reiniciarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPartidaActiva">
+      <soap12:operation soapAction="http://servidoredd2/getPartidaActiva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPartidaActiva">
+      <soap12:operation soapAction="http://servidoredd2/setPartidaActiva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Usuariosgrafo">
+      <soap12:operation soapAction="http://servidoredd2/Usuariosgrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="espejoArbol">
+      <soap12:operation soapAction="http://servidoredd2/espejoArbol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="arbolBGrafo">
+      <soap12:operation soapAction="http://servidoredd2/arbolBGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AVLGrafo">
+      <soap12:operation soapAction="http://servidoredd2/AVLGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarContacto">
+      <soap12:operation soapAction="http://servidoredd2/InsertarContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarArbolB">
+      <soap12:operation soapAction="http://servidoredd2/insertarArbolB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatrizGrafo">
+      <soap12:operation soapAction="http://servidoredd2/MatrizGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <soap12:operation soapAction="http://servidoredd2/CerrarSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <soap12:operation soapAction="http://servidoredd2/IniciarSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarArbol">
+      <soap12:operation soapAction="http://servidoredd2/InsertarArbol" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarJuego">
+      <soap12:operation soapAction="http://servidoredd2/InsertarJuego" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarMatriz">
+      <soap12:operation soapAction="http://servidoredd2/InsertarMatriz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <soap12:operation soapAction="http://servidoredd2/ModificarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap12:operation soapAction="http://servidoredd2/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost/Servidor/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost/Servidor/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,70 @@
+﻿body {
+    background-image: url("http://192.168.1.10/Imagenes/fondo2.jpg");
+	background-size: cover;
+}
+
+.panel{
+	color: #FFFFFF;
+	/*background-color: mediumseagreen;*/
+	/*opacity: 0.8;*/
+    font-size:14pt;
+    font-weight:bold;
+    margin-right: 4px;
+}
+
+h1{
+    color:black;
+    background-color:mediumseagreen;
+    border:solid;
+    border-color:black;
+    opacity:0.9;
+    width:358px;
+}
+
+.panel1{
+    position: relative;
+    width:400px;
+    height:280px;
+    left:-930px;
+    top:-600px;
+
+    color: red;
+    font-size:13pt;
+    font-weight:bold;
+}
+
+.panel2{
+    position: relative;
+    width:400px;
+    height:280px;
+    left:-500px;
+    top:-880px;
+
+    color: red;
+    font-size:13pt;
+    font-weight:bold;
+}
+
+.panel3{
+    position: relative;
+    width:400px;
+    height:280px;
+    left:-930px;
+    top: -860px;
+
+    color: red;
+    font-size:13pt;
+    font-weight:bold;
+}
+
+.panel4{
+    position: relative;
+    width:400px;
+    left:-500px;
+    top:-1140px;
+    height:280px;
+
+    color: red;
+    font-size:13pt;
+    font-weight:bold;
+}

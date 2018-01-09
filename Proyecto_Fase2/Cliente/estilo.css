@@ -1,0 +1,11 @@
+﻿body {
+	background-image: url("http://192.168.1.10/Imagenes/fondo.jpg");
+	background-size: cover;
+}
+
+.panel{
+	color: #FFFFFF;
+	background-color: #20B2AA;
+	opacity: 0.8;
+    font-size:12pt;
+}
