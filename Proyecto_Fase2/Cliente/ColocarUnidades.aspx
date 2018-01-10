@@ -16,6 +16,10 @@
     <div align="right">
         <asp:Panel CssClass="panel" ID="Panel1" runat="server" Width="430px">
             <div align="center">
+                Unidades Disponibles por Nivel<br />
+                <asp:Label ID="labelUnidades" runat="server"></asp:Label>
+                <br /> 
+                <br />
                 Seleccione el tipo de Unidad y<br /> &nbsp;la Posicion donde la Colocará.<br /> &nbsp;
                 <asp:DropDownList ID="unidad" runat="server">
                     <asp:ListItem>Submarino</asp:ListItem>

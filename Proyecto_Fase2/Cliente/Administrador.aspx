@@ -87,7 +87,7 @@
             &nbsp;
             <asp:Button ID="botonContactos" runat="server" OnClick="botonContactos_Click" Text="Contactos" />
 &nbsp;
-            <asp:Button ID="botonGenerarHash" runat="server" Text="Tabla Hash" />
+            <asp:Button ID="botonGenerarHash" runat="server" Text="Tabla Hash" OnClick="botonGenerarHash_Click" />
             <br />
             <asp:Button ID="botonTopEliminados" runat="server" OnClick="botonTopEliminados_Click" Text="Top Eliminados" />
             &nbsp;

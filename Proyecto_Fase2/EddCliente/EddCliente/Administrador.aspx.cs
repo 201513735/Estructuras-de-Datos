@@ -234,5 +234,13 @@ namespace EddCliente
             string c = Convert.ToBase64String(a, 0, a.Length);
             imagenGrafo.Src = "data:image/jpg;base64," + c;
         }
+
+        protected void botonGenerarHash_Click(object sender, EventArgs e)
+        {
+            Byte[] a = ws.tablaGrafo();
+
+            string c = Convert.ToBase64String(a, 0, a.Length);
+            imagenGrafo.Src = "data:image/jpg;base64," + c;
+        }
     }
 }

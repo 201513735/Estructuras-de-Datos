@@ -2,6 +2,41 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://servidoredd2/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servidoredd2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://servidoredd2/">
+      <s:element name="tablaGrafo">
+        <s:complexType />
+      </s:element>
+      <s:element name="tablaGrafoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tablaGrafoResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setActivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nick" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setActivoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="terminarPartida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nickname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oponente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="desplegadas" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sobrevivientes" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="destruidas" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="gano" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="terminarPartidaResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="accionContactos">
         <s:complexType>
           <s:sequence>
@@ -51,6 +86,16 @@
       </s:element>
       <s:element name="setTiempoResponse">
         <s:complexType />
+      </s:element>
+      <s:element name="getConsola">
+        <s:complexType />
+      </s:element>
+      <s:element name="getConsolaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getConsolaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="getJugador1">
         <s:complexType />
@@ -444,6 +489,24 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="tablaGrafoSoapIn">
+    <wsdl:part name="parameters" element="tns:tablaGrafo" />
+  </wsdl:message>
+  <wsdl:message name="tablaGrafoSoapOut">
+    <wsdl:part name="parameters" element="tns:tablaGrafoResponse" />
+  </wsdl:message>
+  <wsdl:message name="setActivoSoapIn">
+    <wsdl:part name="parameters" element="tns:setActivo" />
+  </wsdl:message>
+  <wsdl:message name="setActivoSoapOut">
+    <wsdl:part name="parameters" element="tns:setActivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="terminarPartidaSoapIn">
+    <wsdl:part name="parameters" element="tns:terminarPartida" />
+  </wsdl:message>
+  <wsdl:message name="terminarPartidaSoapOut">
+    <wsdl:part name="parameters" element="tns:terminarPartidaResponse" />
+  </wsdl:message>
   <wsdl:message name="accionContactosSoapIn">
     <wsdl:part name="parameters" element="tns:accionContactos" />
   </wsdl:message>
@@ -467,6 +530,12 @@
   </wsdl:message>
   <wsdl:message name="setTiempoSoapOut">
     <wsdl:part name="parameters" element="tns:setTiempoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getConsolaSoapIn">
+    <wsdl:part name="parameters" element="tns:getConsola" />
+  </wsdl:message>
+  <wsdl:message name="getConsolaSoapOut">
+    <wsdl:part name="parameters" element="tns:getConsolaResponse" />
   </wsdl:message>
   <wsdl:message name="getJugador1SoapIn">
     <wsdl:part name="parameters" element="tns:getJugador1" />
@@ -661,6 +730,18 @@
     <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="tablaGrafo">
+      <wsdl:input message="tns:tablaGrafoSoapIn" />
+      <wsdl:output message="tns:tablaGrafoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setActivo">
+      <wsdl:input message="tns:setActivoSoapIn" />
+      <wsdl:output message="tns:setActivoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="terminarPartida">
+      <wsdl:input message="tns:terminarPartidaSoapIn" />
+      <wsdl:output message="tns:terminarPartidaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="accionContactos">
       <wsdl:input message="tns:accionContactosSoapIn" />
       <wsdl:output message="tns:accionContactosSoapOut" />
@@ -676,6 +757,10 @@
     <wsdl:operation name="setTiempo">
       <wsdl:input message="tns:setTiempoSoapIn" />
       <wsdl:output message="tns:setTiempoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getConsola">
+      <wsdl:input message="tns:getConsolaSoapIn" />
+      <wsdl:output message="tns:getConsolaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getJugador1">
       <wsdl:input message="tns:getJugador1SoapIn" />
@@ -808,6 +893,33 @@
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="tablaGrafo">
+      <soap:operation soapAction="http://servidoredd2/tablaGrafo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setActivo">
+      <soap:operation soapAction="http://servidoredd2/setActivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="terminarPartida">
+      <soap:operation soapAction="http://servidoredd2/terminarPartida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="accionContactos">
       <soap:operation soapAction="http://servidoredd2/accionContactos" style="document" />
       <wsdl:input>
@@ -837,6 +949,15 @@
     </wsdl:operation>
     <wsdl:operation name="setTiempo">
       <soap:operation soapAction="http://servidoredd2/setTiempo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConsola">
+      <soap:operation soapAction="http://servidoredd2/getConsola" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1135,6 +1256,33 @@
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="tablaGrafo">
+      <soap12:operation soapAction="http://servidoredd2/tablaGrafo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setActivo">
+      <soap12:operation soapAction="http://servidoredd2/setActivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="terminarPartida">
+      <soap12:operation soapAction="http://servidoredd2/terminarPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="accionContactos">
       <soap12:operation soapAction="http://servidoredd2/accionContactos" style="document" />
       <wsdl:input>
@@ -1164,6 +1312,15 @@
     </wsdl:operation>
     <wsdl:operation name="setTiempo">
       <soap12:operation soapAction="http://servidoredd2/setTiempo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConsola">
+      <soap12:operation soapAction="http://servidoredd2/getConsola" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

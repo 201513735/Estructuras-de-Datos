@@ -18,8 +18,8 @@ public class Unidad
         Nickname = nickname;
         if (nombre.ToLower().Contains("submarino"))
         {
-            Alcance = 5;
-            Movimiento = 1;
+            Alcance = 1;
+            Movimiento = 5;
             Daño = 2;
             Vida = 10;
             Nivel = 0;

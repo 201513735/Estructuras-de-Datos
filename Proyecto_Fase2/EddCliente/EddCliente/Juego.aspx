@@ -69,8 +69,10 @@
                     <br />
                     <asp:Button ID="botonTerminarTurno" runat="server" Text="Terminar Turno" OnClick="botonTerminarTurno_Click" />
                     <br />
+                    <asp:Button ID="botonActualizar" runat="server" OnClick="botonActualizar_Click" Text="Actualizar" />
+                    <br />
                     Consola:<br />
-                    <asp:TextBox ID="textConsola" runat="server" Height="260px" Width="377px"></asp:TextBox>
+                    <asp:TextBox ID="textConsola" TextMode="MultiLine" runat="server" Height="260px" Width="377px"></asp:TextBox>
                 </div>
             </asp:Panel>
             <asp:Panel CssClass="panel1" ID="Panel2" runat="server">

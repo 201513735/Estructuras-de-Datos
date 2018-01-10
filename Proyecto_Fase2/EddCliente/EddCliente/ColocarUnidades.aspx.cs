@@ -17,6 +17,7 @@ namespace EddCliente
         {
             if (coordenadaX.Items.Count == 0)
             {
+                Session.Add("desplegadas", "0");
                 n0 = ws.getDatoInt(0);
                 n1 = ws.getDatoInt(1);
                 n2 = ws.getDatoInt(2);
@@ -91,7 +92,9 @@ namespace EddCliente
                 if (n0 > 0)
                 {
                     n0--;
+                    Session["desplegadas"] = Convert.ToInt32(Session["desplegadas"]) + 1;
                     ws.InsertarMatriz(Convert.ToInt32(coordenadaY.Text), Convert.ToChar(coordenadaX.Text), jugador.ToString()+unidad.Text+colocada.ToString(), Session["nickname"].ToString());
+                    labelError.Text = "";
                 }
                 else
                 {
@@ -101,7 +104,9 @@ namespace EddCliente
             {
                 if (n1 > 0)
                 {
+                    labelError.Text = "";
                     n1--;
+                    Session["desplegadas"] = Convert.ToInt32(Session["desplegadas"]) + 1;
                     ws.InsertarMatriz(Convert.ToInt32(coordenadaY.Text), Convert.ToChar(coordenadaX.Text), jugador.ToString() + unidad.Text + colocada.ToString(), Session["nickname"].ToString());
                 }
                 else
@@ -113,7 +118,9 @@ namespace EddCliente
             {
                 if (n2 > 0)
                 {
+                    labelError.Text = "";
                     n2--;
+                    Session["desplegadas"] = Convert.ToInt32(Session["desplegadas"]) + 1;
                     ws.InsertarMatriz(Convert.ToInt32(coordenadaY.Text), Convert.ToChar(coordenadaX.Text), jugador.ToString() + unidad.Text + colocada.ToString(), Session["nickname"].ToString());
                 }
                 else
@@ -125,7 +132,9 @@ namespace EddCliente
             {
                 if (n3 > 0)
                 {
+                    labelError.Text = "";
                     n3--;
+                    Session["desplegadas"] = Convert.ToInt32(Session["desplegadas"]) + 1;
                     ws.InsertarMatriz(Convert.ToInt32(coordenadaY.Text), Convert.ToChar(coordenadaX.Text), jugador.ToString() + unidad.Text + colocada.ToString(), Session["nickname"].ToString());
                 }
                 else
@@ -133,6 +142,8 @@ namespace EddCliente
                     labelError.Text = "No puede Agregar mas unidades en ese nivel.";
                 }
             }
+
+            labelUnidades.Text = "Submarino: " + n0.ToString() + "\n Barcos: " + n1.ToString() + "\n Aviones: " + n2.ToString() + "\n Satelites: " + n3.ToString();
         }
     }
 }

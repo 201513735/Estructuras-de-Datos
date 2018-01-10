@@ -15,6 +15,18 @@ namespace EddCliente.ReferenciaServidor {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://servidoredd2/", ConfigurationName="ReferenciaServidor.WebServiceSoap")]
     public interface WebServiceSoap {
         
+        // CODEGEN: Generating message contract since element name tablaGrafoResult from namespace http://servidoredd2/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/tablaGrafo", ReplyAction="*")]
+        EddCliente.ReferenciaServidor.tablaGrafoResponse tablaGrafo(EddCliente.ReferenciaServidor.tablaGrafoRequest request);
+        
+        // CODEGEN: Generating message contract since element name nick from namespace http://servidoredd2/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/setActivo", ReplyAction="*")]
+        EddCliente.ReferenciaServidor.setActivoResponse setActivo(EddCliente.ReferenciaServidor.setActivoRequest request);
+        
+        // CODEGEN: Generating message contract since element name nickname from namespace http://servidoredd2/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/terminarPartida", ReplyAction="*")]
+        EddCliente.ReferenciaServidor.terminarPartidaResponse terminarPartida(EddCliente.ReferenciaServidor.terminarPartidaRequest request);
+        
         // CODEGEN: Generating message contract since element name accion from namespace http://servidoredd2/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/accionContactos", ReplyAction="*")]
         EddCliente.ReferenciaServidor.accionContactosResponse accionContactos(EddCliente.ReferenciaServidor.accionContactosRequest request);
@@ -29,6 +41,10 @@ namespace EddCliente.ReferenciaServidor {
         // CODEGEN: Generating message contract since element name tiempo from namespace http://servidoredd2/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/setTiempo", ReplyAction="*")]
         EddCliente.ReferenciaServidor.setTiempoResponse setTiempo(EddCliente.ReferenciaServidor.setTiempoRequest request);
+        
+        // CODEGEN: Generating message contract since element name getConsolaResult from namespace http://servidoredd2/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/getConsola", ReplyAction="*")]
+        EddCliente.ReferenciaServidor.getConsolaResponse getConsola(EddCliente.ReferenciaServidor.getConsolaRequest request);
         
         // CODEGEN: Generating message contract since element name getJugador1Result from namespace http://servidoredd2/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/getJugador1", ReplyAction="*")]
@@ -151,6 +167,209 @@ namespace EddCliente.ReferenciaServidor {
         // CODEGEN: Generating message contract since element name nickname from namespace http://servidoredd2/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://servidoredd2/EliminarUsuario", ReplyAction="*")]
         EddCliente.ReferenciaServidor.EliminarUsuarioResponse EliminarUsuario(EddCliente.ReferenciaServidor.EliminarUsuarioRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class tablaGrafoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="tablaGrafo", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.tablaGrafoRequestBody Body;
+        
+        public tablaGrafoRequest() {
+        }
+        
+        public tablaGrafoRequest(EddCliente.ReferenciaServidor.tablaGrafoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class tablaGrafoRequestBody {
+        
+        public tablaGrafoRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class tablaGrafoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="tablaGrafoResponse", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.tablaGrafoResponseBody Body;
+        
+        public tablaGrafoResponse() {
+        }
+        
+        public tablaGrafoResponse(EddCliente.ReferenciaServidor.tablaGrafoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://servidoredd2/")]
+    public partial class tablaGrafoResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public byte[] tablaGrafoResult;
+        
+        public tablaGrafoResponseBody() {
+        }
+        
+        public tablaGrafoResponseBody(byte[] tablaGrafoResult) {
+            this.tablaGrafoResult = tablaGrafoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setActivoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setActivo", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.setActivoRequestBody Body;
+        
+        public setActivoRequest() {
+        }
+        
+        public setActivoRequest(EddCliente.ReferenciaServidor.setActivoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://servidoredd2/")]
+    public partial class setActivoRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nick;
+        
+        public setActivoRequestBody() {
+        }
+        
+        public setActivoRequestBody(string nick) {
+            this.nick = nick;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setActivoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setActivoResponse", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.setActivoResponseBody Body;
+        
+        public setActivoResponse() {
+        }
+        
+        public setActivoResponse(EddCliente.ReferenciaServidor.setActivoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class setActivoResponseBody {
+        
+        public setActivoResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class terminarPartidaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="terminarPartida", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.terminarPartidaRequestBody Body;
+        
+        public terminarPartidaRequest() {
+        }
+        
+        public terminarPartidaRequest(EddCliente.ReferenciaServidor.terminarPartidaRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://servidoredd2/")]
+    public partial class terminarPartidaRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nickname;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string oponente;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int desplegadas;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int sobrevivientes;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public int destruidas;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public int gano;
+        
+        public terminarPartidaRequestBody() {
+        }
+        
+        public terminarPartidaRequestBody(string nickname, string oponente, int desplegadas, int sobrevivientes, int destruidas, int gano) {
+            this.nickname = nickname;
+            this.oponente = oponente;
+            this.desplegadas = desplegadas;
+            this.sobrevivientes = sobrevivientes;
+            this.destruidas = destruidas;
+            this.gano = gano;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class terminarPartidaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="terminarPartidaResponse", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.terminarPartidaResponseBody Body;
+        
+        public terminarPartidaResponse() {
+        }
+        
+        public terminarPartidaResponse(EddCliente.ReferenciaServidor.terminarPartidaResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class terminarPartidaResponseBody {
+        
+        public terminarPartidaResponseBody() {
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -356,6 +575,67 @@ namespace EddCliente.ReferenciaServidor {
     public partial class setTiempoResponseBody {
         
         public setTiempoResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getConsolaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getConsola", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.getConsolaRequestBody Body;
+        
+        public getConsolaRequest() {
+        }
+        
+        public getConsolaRequest(EddCliente.ReferenciaServidor.getConsolaRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class getConsolaRequestBody {
+        
+        public getConsolaRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getConsolaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getConsolaResponse", Namespace="http://servidoredd2/", Order=0)]
+        public EddCliente.ReferenciaServidor.getConsolaResponseBody Body;
+        
+        public getConsolaResponse() {
+        }
+        
+        public getConsolaResponse(EddCliente.ReferenciaServidor.getConsolaResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://servidoredd2/")]
+    public partial class getConsolaResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string getConsolaResult;
+        
+        public getConsolaResponseBody() {
+        }
+        
+        public getConsolaResponseBody(string getConsolaResult) {
+            this.getConsolaResult = getConsolaResult;
         }
     }
     
@@ -2193,6 +2473,47 @@ namespace EddCliente.ReferenciaServidor {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EddCliente.ReferenciaServidor.tablaGrafoResponse EddCliente.ReferenciaServidor.WebServiceSoap.tablaGrafo(EddCliente.ReferenciaServidor.tablaGrafoRequest request) {
+            return base.Channel.tablaGrafo(request);
+        }
+        
+        public byte[] tablaGrafo() {
+            EddCliente.ReferenciaServidor.tablaGrafoRequest inValue = new EddCliente.ReferenciaServidor.tablaGrafoRequest();
+            inValue.Body = new EddCliente.ReferenciaServidor.tablaGrafoRequestBody();
+            EddCliente.ReferenciaServidor.tablaGrafoResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).tablaGrafo(inValue);
+            return retVal.Body.tablaGrafoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EddCliente.ReferenciaServidor.setActivoResponse EddCliente.ReferenciaServidor.WebServiceSoap.setActivo(EddCliente.ReferenciaServidor.setActivoRequest request) {
+            return base.Channel.setActivo(request);
+        }
+        
+        public void setActivo(string nick) {
+            EddCliente.ReferenciaServidor.setActivoRequest inValue = new EddCliente.ReferenciaServidor.setActivoRequest();
+            inValue.Body = new EddCliente.ReferenciaServidor.setActivoRequestBody();
+            inValue.Body.nick = nick;
+            EddCliente.ReferenciaServidor.setActivoResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).setActivo(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EddCliente.ReferenciaServidor.terminarPartidaResponse EddCliente.ReferenciaServidor.WebServiceSoap.terminarPartida(EddCliente.ReferenciaServidor.terminarPartidaRequest request) {
+            return base.Channel.terminarPartida(request);
+        }
+        
+        public void terminarPartida(string nickname, string oponente, int desplegadas, int sobrevivientes, int destruidas, int gano) {
+            EddCliente.ReferenciaServidor.terminarPartidaRequest inValue = new EddCliente.ReferenciaServidor.terminarPartidaRequest();
+            inValue.Body = new EddCliente.ReferenciaServidor.terminarPartidaRequestBody();
+            inValue.Body.nickname = nickname;
+            inValue.Body.oponente = oponente;
+            inValue.Body.desplegadas = desplegadas;
+            inValue.Body.sobrevivientes = sobrevivientes;
+            inValue.Body.destruidas = destruidas;
+            inValue.Body.gano = gano;
+            EddCliente.ReferenciaServidor.terminarPartidaResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).terminarPartida(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         EddCliente.ReferenciaServidor.accionContactosResponse EddCliente.ReferenciaServidor.WebServiceSoap.accionContactos(EddCliente.ReferenciaServidor.accionContactosRequest request) {
             return base.Channel.accionContactos(request);
         }
@@ -2235,6 +2556,18 @@ namespace EddCliente.ReferenciaServidor {
             inValue.Body = new EddCliente.ReferenciaServidor.setTiempoRequestBody();
             inValue.Body.tiempo = tiempo;
             EddCliente.ReferenciaServidor.setTiempoResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).setTiempo(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        EddCliente.ReferenciaServidor.getConsolaResponse EddCliente.ReferenciaServidor.WebServiceSoap.getConsola(EddCliente.ReferenciaServidor.getConsolaRequest request) {
+            return base.Channel.getConsola(request);
+        }
+        
+        public string getConsola() {
+            EddCliente.ReferenciaServidor.getConsolaRequest inValue = new EddCliente.ReferenciaServidor.getConsolaRequest();
+            inValue.Body = new EddCliente.ReferenciaServidor.getConsolaRequestBody();
+            EddCliente.ReferenciaServidor.getConsolaResponse retVal = ((EddCliente.ReferenciaServidor.WebServiceSoap)(this)).getConsola(inValue);
+            return retVal.Body.getConsolaResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

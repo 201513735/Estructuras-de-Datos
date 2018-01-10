@@ -23,11 +23,74 @@ namespace ServidorEDD
         static Matriz matriz = new Matriz(1);
         static ArbolB historial=new ArbolB(3,1);
         static ListaTop listaTop;
+        static TablaHash tabla;
 
         static String jugador1 = "", jugador2 = "", tiempo2="", dot, tipo="", activo="";
+        static String consola = "";
         static public bool partidaActiva = false;
         static int nivel0, nivel1, nivel2, nivel3, tamañoX, tamañoY;
         static int base1x, base1y, base2x, base2y;
+
+        [WebMethod]
+        public Byte[] tablaGrafo()
+        {
+            tabla = new TablaHash(43);
+            ingresarTabla(arbol.Raiz);
+
+            dot = "digraph TablaHash{\n graph[rankdir=\"LR\"];\n tabla[label=\"";
+            NodoArbol n;
+            for(int i = 0; i < tabla.Tabla.Length; i++)
+            {
+                if (tabla.Tabla[i] != null)
+                {
+                    n = tabla.Tabla[i].Usuario;
+                    dot = dot + "Nick: " + n.NickName + "  --  Password: " + n.Correo + "  --  Correo: " + n.Correo + "  --  Conexion: " + n.Conexion.ToString() + " | \n";
+                }
+            }
+            dot = dot + "\"\n shape=\"record\"];\n }";
+
+            TextWriter t = new StreamWriter(@"C:\GrafosEDD\grafoTabla.dot");
+            t.WriteLine(dot);
+            t.Close();
+
+            Byte[] a = new Byte[0];
+
+            String comando = "\"C:/Program Files (x86)/Graphviz2.38/bin/dot.exe\" -Tpng C:\\GrafosEDD\\grafoTabla.dot -o C:\\GrafosEDD\\grafoTabla.png";
+            var procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd.exe", "/c" + comando);
+            var proc = new System.Diagnostics.Process { StartInfo = procStartInfo };
+            proc.Start();
+            proc.WaitForExit();
+
+            FileStream foto = new FileStream("C:\\GrafosEDD\\grafoTabla.png", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            a = new Byte[foto.Length];
+            BinaryReader reader = new BinaryReader(foto);
+            a = reader.ReadBytes(Convert.ToInt32(foto.Length));
+            foto.Close();
+
+            return a;
+        }
+
+        [WebMethod]
+        public void setActivo(String nick)
+        {
+            activo = nick;
+        }
+
+        public void ingresarTabla(NodoArbol n)
+        {
+            if (n != null)
+            {
+                tabla.Insertar(n);
+                ingresarTabla(n.Der);
+                ingresarTabla(n.Izq);
+            }
+        }
+
+        [WebMethod]
+        public void terminarPartida(String nickname, String oponente, int desplegadas, int sobrevivientes, int destruidas, int gano)
+        {
+            arbol.Buscar(nickname, arbol.Raiz).Lista.Insertar(oponente, desplegadas, sobrevivientes, destruidas, gano, historial);
+        }
 
         [WebMethod]
         public void accionContactos(String accion, String nick, String nick2, String contraseña, String correo)
@@ -173,6 +236,12 @@ namespace ServidorEDD
         }
 
         [WebMethod]
+        public String getConsola()
+        {
+            return consola;
+        }
+
+        [WebMethod]
         public String getJugador1()
         {
             return jugador1;
@@ -204,6 +273,7 @@ namespace ServidorEDD
                     m.Eliminar(nombre);
                     matriz.Insertar(y, x, nombre, n.Nave.Nickname);
                     n.Nave.Mover = 1;
+                    consola = consola + nickname + ":  movio a la unidad " + nombre + ". \n ";
                     return true;
                 }
                 else
@@ -270,10 +340,12 @@ namespace ServidorEDD
                                 m.Eliminar(victima.Nave.Nombre);
                                 resultado = victima.Nave.Nombre;
                                 historial.Insertar(columna, fila, nombre, 0, victima.Nave.Nombre, nickname, receptor,DateTime.Today.ToString(), tiempo2, 0);
+                                consola = consola + nickname + ": ataco a la unidad " + victima.Nave.Nombre + ". \n";
                             }
                             else
                             {
                                 resultado = "1,"+victima.Nave.Nombre;
+                                consola = consola + nickname + ": derrivo a la unidad " + victima.Nave.Nombre + ". \n";
                                 historial.Insertar(columna, fila, nombre, 1, victima.Nave.Nombre, nickname, receptor, DateTime.Today.ToString(), tiempo2, 0);
                             }
                             
